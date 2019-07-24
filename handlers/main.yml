@@ -1,0 +1,7 @@
+---
+
+- name: Restart LazyLibrarian
+  docker_container:
+    name: "{{ lazylibrarian_name }}"
+    state: started
+    restart: true

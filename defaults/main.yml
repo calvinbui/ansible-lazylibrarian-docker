@@ -1,0 +1,21 @@
+---
+
+lazylibrarian_name: lazylibrarian
+lazylibrarian_image: linuxserver/lazylibrarian
+lazylibrarian_ports:
+  - 5299:5299
+lazylibrarian_config_directory: /tmp/lazylibrarian
+lazylibrarian_books_directory: /tmp/books
+lazylibrarian_download_directory: /tmp/downloads
+lazylibrarian_environment_variables:
+  PUID: "1000"
+  PGID: "1000"
+  TZ: Sydney/Australia
+
+lazylibrarian_docker_additional_options:
+  restart_policy: unless-stopped
+
+lazylibrarian_config:
+  General.loglimit: 500
+  Git.git_host: "gitlab.com"
+  Twitter.use_twitter: 0
