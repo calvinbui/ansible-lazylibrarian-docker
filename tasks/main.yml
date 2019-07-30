@@ -26,10 +26,9 @@
   docker_container: "{{ lazylibrarian_container_parameters | combine(lazylibrarian_docker_additional_options) }}"
   register: lazylibrarian_container
 
-- name: Wait for LazyLibrarian start
+- name: Wait for LazyLibrarian config file
   wait_for:
-    port: "{{ lazylibrarian_ports[0].split(':')[0] }}"
-    host: "{{ lazylibrarian_container.container.NetworkSettings.IPAddress }}"
+    path: "{{ lazylibrarian_config_directory }}/config.ini"
 
 - name: Configure LazyLibrarian
   ini_file:
